@@ -3,101 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TechNews - O portal de notícias sobre tecnologia">
-    <title>TechNews - Inovação e Tecnologia</title>
-    
-    <!-- ========================================== -->
-    <!-- CSS SEPARADO - VERIFIQUE O CAMINHO!       -->
-    <!-- ========================================== -->
+    <title>TechNews - Notícias de Tecnologia</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- CASO O CSS AINDA NÃO CARREGUE, TENTE: -->
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
-    <!-- OU -->
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-    
 </head>
 <body>
+
+    <!-- ========================================== -->
     <!-- CABEÇALHO -->
+    <!-- ========================================== -->
     <header>
         <div class="container">
             <div class="logo">
-                <h1>🚀 TechNews</h1>
-                <span class="slogan">O futuro começa aqui</span>
+                <h1>📡 TechNews</h1>
+                <span class="slogan">O futuro da tecnologia em um só lugar</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#noticias">Notícias</a></li>
-                    <li><a href="#tendencias">Tendências</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#" data-categoria="inicio" class="active">Início</a></li>
+                    <li><a href="#" data-categoria="hardware">Hardware</a></li>
+                    <li><a href="#" data-categoria="mobile">Mobile</a></li>
+                    <li><a href="#" data-categoria="games">Games</a></li>
+                    <li><a href="#" data-categoria="ia">IA</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- SEÇÃO HERO -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <h2>Bem-vindo ao TechNews</h2>
-            <p>As principais notícias do mundo da tecnologia, inteligência artificial, gadgets e inovação.</p>
-            <a href="#noticias" class="btn">Ver notícias 🔥</a>
-        </div>
-    </section>
+    <!-- ========================================== -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ========================================== -->
+    <main>
 
-    <!-- SEÇÃO NOTÍCIAS -->
-    <section id="noticias" class="noticias">
-        <div class="container">
-            <h2>📰 Últimas Notícias</h2>
-            <div class="cards-grid">
-                <article class="card">
-                    <div class="card-img">🖥️</div>
-                    <h3>Novo processador revoluciona mercado</h3>
-                    <p>Empresa lança chip com 10x mais performance para IA.</p>
-                    <a href="#">Leia mais →</a>
-                </article>
-                
-                <article class="card">
-                    <div class="card-img">🤖</div>
-                    <h3>IA agora escreve códigos melhores que humanos</h3>
-                    <p>Modelo de linguagem supera programadores em testes.</p>
-                    <a href="#">Leia mais →</a>
-                </article>
-                
-                <article class="card">
-                    <div class="card-img">📱</div>
-                    <h3>Smartphone dobrável chega ao Brasil</h3>
-                    <p>Preço ainda é alto, mas tecnologia impressiona.</p>
-                    <a href="#">Leia mais →</a>
-                </article>
+        <!-- ===== SEÇÃO DESTAQUE (HERO) ===== -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="badge">🔥 DESTAQUE</span>
+                    <h2>Inteligência Artificial: O Futuro já Chegou</h2>
+                    <p>Descubra como a IA está revolucionando o mundo da tecnologia e transformando a maneira como vivemos, trabalhamos e nos comunicamos.</p>
+                    <a href="#" class="btn btn-leia-mais" data-titulo="Inteligência Artificial: O Futuro já Chegou" data-conteudo="A Inteligência Artificial está transformando todos os setores da sociedade. Desde assistentes virtuais até carros autônomos, a IA está presente em nosso dia a dia. Grandes empresas como Google, Microsoft e OpenAI investem bilhões para tornar a IA mais acessível e poderosa. O futuro promete máquinas capazes de aprender, raciocinar e até sentir emoções, revolucionando a forma como interagimos com a tecnologia.">
+                        📖 Leia mais
+                    </a>
+                </div>
+                <div class="hero-icon">🤖</div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEÇÃO TENDÊNCIAS -->
-    <section id="tendencias" class="tendencias">
-        <div class="container">
-            <h2>⚡ Tendências do momento</h2>
-            <ul class="lista-tendencias">
-                <li>🚀 Computação Quântica</li>
-                <li>🧠 Neurotecnologia</li>
-                <li>🌐 Web3 e Blockchain</li>
-                <li>🔋 Baterias de estado sólido</li>
-            </ul>
-        </div>
-    </section>
+        <!-- ===== SEÇÃO DE NOTÍCIAS (DINÂMICA) ===== -->
+        <section class="noticias" id="conteudo-principal">
+            <div class="container">
+                <h2 id="titulo-categoria">📰 Últimas Notícias</h2>
+                <div class="cards-grid" id="cards-container">
+                    <!-- Os cards serão inseridos pelo JavaScript -->
+                </div>
+            </div>
+        </section>
 
+        <!-- ===== SEÇÃO MAIS LIDAS ===== -->
+        <section class="destaques">
+            <div class="container">
+                <div class="destaques-grid">
+                    <div class="mais-lidas">
+                        <h2>🔥 Mais Lidas</h2>
+                        <div class="lista-item">
+                            <span class="numero">01</span>
+                            <div>
+                                <h4>Inteligência Artificial: O Futuro já Chegou</h4>
+                                <span class="data">📅 23/06/2026</span>
+                            </div>
+                        </div>
+                        <div class="lista-item">
+                            <span class="numero">02</span>
+                            <div>
+                                <h4>Apple lança novo iPhone com chip revolucionário</h4>
+                                <span class="data">📅 23/06/2026</span>
+                            </div>
+                        </div>
+                        <div class="lista-item">
+                            <span class="numero">03</span>
+                            <div>
+                                <h4>PlayStation 6 chega com gráficos impressionantes</h4>
+                                <span class="data">📅 21/06/2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="categorias">
+                        <h2>📂 Categorias</h2>
+                        <ul>
+                            <li data-categoria="hardware">💻 Hardware <span class="count">(12)</span></li>
+                            <li data-categoria="mobile">📱 Mobile <span class="count">(8)</span></li>
+                            <li data-categoria="games">🎮 Games <span class="count">(15)</span></li>
+                            <li data-categoria="ia">🤖 Inteligência Artificial <span class="count">(10)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>📬 Receba as últimas notícias</h2>
+                <p>Cadastre-se e receba as principais notícias de tecnologia no seu e-mail!</p>
+                <form id="formNewsletter">
+                    <input type="email" id="emailInput" placeholder="Digite seu melhor e-mail" required>
+                    <button type="submit">📨 Inscrever-se</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
     <!-- RODAPÉ -->
-    <footer id="sobre">
+    <!-- ========================================== -->
+    <footer>
         <div class="container">
-            <p>© 2026 TechNews - Feito com 💻 e ☕</p>
-            <p><small>Desenvolvido para fins educacionais</small></p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>📡 TechNews</h3>
+                    <p>O melhor portal de notícias sobre tecnologia do Brasil.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>📰 Categorias</h4>
+                    <ul>
+                        <li>💻 Hardware</li>
+                        <li>📱 Mobile</li>
+                        <li>🎮 Games</li>
+                        <li>🤖 IA</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>🔗 Links</h4>
+                    <ul>
+                        <li>Sobre nós</li>
+                        <li>Contato</li>
+                        <li>Política de Privacidade</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>📱 Redes Sociais</h4>
+                    <ul>
+                        <li>📸 Instagram</li>
+                        <li>🐦 Twitter</li>
+                        <li>▶️ YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 TechNews - Todos os direitos reservados | Criado com ❤️ e ☕</p>
+            </div>
         </div>
     </footer>
 
+    <!-- ===== MODAL PARA "LEIA MAIS" ===== -->
+    <div id="modalLeiaMais" class="modal">
+        <div class="modal-content">
+            <span class="modal-fechar">&times;</span>
+            <h2 id="modal-titulo">Título</h2>
+            <p id="modal-conteudo">Conteúdo detalhado aqui...</p>
+        </div>
+    </div>
+
     <!-- ========================================== -->
-    <!-- JAVASCRIPT SEPARADO (JÁ ESTÁ FUNCIONANDO) -->
+    <!-- JAVASCRIPT -->
     <!-- ========================================== -->
-    <script src="js/script.js" defer></script>
+    <script src="javascript/script.js"></script>
 </body>
 </html>
