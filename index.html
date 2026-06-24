@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- METADADOS ESSENCIAIS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TechNews - O portal de notícias sobre tecnologia, inovação e futuro digital.">
-    
-    <!-- TÍTULO DO SITE -->
+    <meta name="description" content="TechNews - O portal de notícias sobre tecnologia">
     <title>TechNews - Inovação e Tecnologia</title>
-
-    <!-- ============================================ -->
-    <!-- LINK PARA O ARQUIVO CSS (FORA DO HTML)       -->
-    <!-- ============================================ -->
+    
+    <!-- ========================================== -->
+    <!-- CSS SEPARADO - VERIFIQUE O CAMINHO!       -->
+    <!-- ========================================== -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- ÍCONE DA ABA (FAVICON) - OPCIONAL -->
-    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+    <!-- CASO O CSS AINDA NÃO CARREGUE, TENTE: -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- OU -->
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    
 </head>
 <body>
-    <!-- ============================================ -->
-    <!-- INÍCIO DO CONTEÚDO VISÍVEL                   -->
-    <!-- ============================================ -->
-    
-    <!-- CABEÇALHO / NAVEGAÇÃO -->
+    <!-- CABEÇALHO -->
     <header>
         <div class="container">
             <div class="logo">
@@ -40,7 +36,7 @@
         </div>
     </header>
 
-    <!-- SEÇÃO PRINCIPAL (DESTAQUE) -->
+    <!-- SEÇÃO HERO -->
     <section id="inicio" class="hero">
         <div class="container">
             <h2>Bem-vindo ao TechNews</h2>
@@ -49,12 +45,11 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE NOTÍCIAS (CARDS) -->
+    <!-- SEÇÃO NOTÍCIAS -->
     <section id="noticias" class="noticias">
         <div class="container">
             <h2>📰 Últimas Notícias</h2>
             <div class="cards-grid">
-                <!-- Card 1 -->
                 <article class="card">
                     <div class="card-img">🖥️</div>
                     <h3>Novo processador revoluciona mercado</h3>
@@ -62,7 +57,6 @@
                     <a href="#">Leia mais →</a>
                 </article>
                 
-                <!-- Card 2 -->
                 <article class="card">
                     <div class="card-img">🤖</div>
                     <h3>IA agora escreve códigos melhores que humanos</h3>
@@ -70,7 +64,6 @@
                     <a href="#">Leia mais →</a>
                 </article>
                 
-                <!-- Card 3 -->
                 <article class="card">
                     <div class="card-img">📱</div>
                     <h3>Smartphone dobrável chega ao Brasil</h3>
@@ -81,7 +74,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DE TENDÊNCIAS -->
+    <!-- SEÇÃO TENDÊNCIAS -->
     <section id="tendencias" class="tendencias">
         <div class="container">
             <h2>⚡ Tendências do momento</h2>
@@ -102,10 +95,9 @@
         </div>
     </footer>
 
-    <!-- ============================================ -->
-    <!-- LINK PARA O ARQUIVO JAVASCRIPT (FORA DO HTML)-->
-    <!-- ============================================ -->
-    <!-- O "defer" faz o JS carregar só depois do HTML -->
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT SEPARADO (JÁ ESTÁ FUNCIONANDO) -->
+    <!-- ========================================== -->
     <script src="js/script.js" defer></script>
 </body>
 </html>
