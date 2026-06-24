@@ -1,4 +1,6 @@
-/* RESET BÁSICO */
+/* =============================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ============================================= */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +20,9 @@ body {
     padding: 0 20px;
 }
 
-/* CABEÇALHO */
+/* =============================================
+   CABEÇALHO
+   ============================================= */
 header {
     background: #121a2a;
     padding: 20px 0;
@@ -61,7 +65,9 @@ nav a:hover {
     color: #00d4ff;
 }
 
-/* HERO */
+/* =============================================
+   HERO (SEÇÃO PRINCIPAL)
+   ============================================= */
 .hero {
     background: linear-gradient(135deg, #0d1b2a, #1b2d45);
     padding: 80px 0;
@@ -75,6 +81,7 @@ nav a:hover {
     background: linear-gradient(90deg, #00d4ff, #7b2ffc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .hero p {
@@ -101,7 +108,9 @@ nav a:hover {
     box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
 }
 
-/* NOTÍCIAS (CARDS) */
+/* =============================================
+   NOTÍCIAS (CARDS)
+   ============================================= */
 .noticias {
     padding: 60px 0;
 }
@@ -160,7 +169,9 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* TENDÊNCIAS */
+/* =============================================
+   TENDÊNCIAS
+   ============================================= */
 .tendencias {
     background: #0d1422;
     padding: 60px 0;
@@ -191,7 +202,9 @@ nav a:hover {
     border-left: 4px solid #00d4ff;
 }
 
-/* RODAPÉ */
+/* =============================================
+   RODAPÉ
+   ============================================= */
 footer {
     background: #060b12;
     padding: 40px 0;
@@ -207,4 +220,37 @@ footer p:first-child {
 
 footer small {
     color: #445566;
+}
+
+/* =============================================
+   RESPONSIVIDADE (TELAS MENORES)
+   ============================================= */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-tendencias {
+        flex-direction: column;
+        align-items: center;
+    }
 }
