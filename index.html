@@ -4,13 +4,367 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechNews - Notícias de Tecnologia</title>
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- ========================================== -->
+    <!-- CSS DENTRO DO HTML (SEM ARQUIVO EXTERNO)  -->
+    <!-- ========================================== -->
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== CABEÇALHO ===== */
+        header {
+            background: #1a1a2e;
+            padding: 20px 0;
+            border-bottom: 3px solid #00d4ff;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: #00d4ff;
+            font-size: 1.8rem;
+        }
+
+        .slogan {
+            color: #8899bb;
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #00d4ff;
+            color: #1a1a2e;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #0f3460, #1a1a2e);
+            padding: 60px 0;
+            border-bottom: 3px solid #00d4ff;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content .badge {
+            background: #00d4ff;
+            color: #1a1a2e;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h2 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background: #00d4ff;
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        /* ===== NOTÍCIAS ===== */
+        .noticias {
+            padding: 50px 0;
+        }
+
+        .noticias h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .card .icone {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card .data {
+            color: #999;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card .autor {
+            color: #999;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .card button {
+            background: #00d4ff;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 20px;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card button:hover {
+            background: #0f3460;
+            color: #fff;
+        }
+
+        /* ===== MAIS LIDAS ===== */
+        .mais-lidas {
+            background: #fff;
+            padding: 50px 0;
+        }
+
+        .mais-lidas h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .lista-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .lista-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .lista-item .numero {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+            min-width: 40px;
+        }
+
+        .lista-item h4 {
+            font-size: 1rem;
+        }
+
+        .lista-item .data {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+
+        .modal-content {
+            background: #fff;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .fechar {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: 0.3s;
+        }
+
+        .fechar:hover {
+            color: #333;
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+            padding-right: 40px;
+        }
+
+        .modal-content p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background: #1a1a2e;
+            color: #999;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content p {
+                margin: 0 auto 25px;
+            }
+            
+            .hero-icon {
+                font-size: 4rem;
+                padding: 20px;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 50px 20px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- CABEÇALHO -->
-    <!-- ========================================== -->
+    <!-- ===== CABEÇALHO ===== -->
     <header>
         <div class="container">
             <div class="logo">
@@ -19,155 +373,305 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" data-categoria="inicio" class="active">Início</a></li>
-                    <li><a href="#" data-categoria="hardware">Hardware</a></li>
-                    <li><a href="#" data-categoria="mobile">Mobile</a></li>
-                    <li><a href="#" data-categoria="games">Games</a></li>
-                    <li><a href="#" data-categoria="ia">IA</a></li>
+                    <li><a href="#" class="active" onclick="mudarCategoria('inicio')">Início</a></li>
+                    <li><a href="#" onclick="mudarCategoria('hardware')">Hardware</a></li>
+                    <li><a href="#" onclick="mudarCategoria('mobile')">Mobile</a></li>
+                    <li><a href="#" onclick="mudarCategoria('games')">Games</a></li>
+                    <li><a href="#" onclick="mudarCategoria('ia')">IA</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- CONTEÚDO PRINCIPAL -->
-    <!-- ========================================== -->
-    <main>
-
-        <!-- ===== SEÇÃO DESTAQUE (HERO) ===== -->
-        <section id="inicio" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <span class="badge">🔥 DESTAQUE</span>
-                    <h2>Inteligência Artificial: O Futuro já Chegou</h2>
-                    <p>Descubra como a IA está revolucionando o mundo da tecnologia e transformando a maneira como vivemos, trabalhamos e nos comunicamos.</p>
-                    <a href="#" class="btn btn-leia-mais" data-titulo="Inteligência Artificial: O Futuro já Chegou" data-conteudo="A Inteligência Artificial está transformando todos os setores da sociedade. Desde assistentes virtuais até carros autônomos, a IA está presente em nosso dia a dia. Grandes empresas como Google, Microsoft e OpenAI investem bilhões para tornar a IA mais acessível e poderosa. O futuro promete máquinas capazes de aprender, raciocinar e até sentir emoções, revolucionando a forma como interagimos com a tecnologia.">
-                        📖 Leia mais
-                    </a>
-                </div>
-                <div class="hero-icon">🤖</div>
+    <!-- ===== DESTAQUE ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">🔥 DESTAQUE</span>
+                <h2>Inteligência Artificial: O Futuro já Chegou</h2>
+                <p>Descubra como a IA está revolucionando o mundo da tecnologia e transformando a maneira como vivemos, trabalhamos e nos comunicamos.</p>
+                <button class="btn" onclick="abrirModal('Inteligência Artificial: O Futuro já Chegou', 'A Inteligência Artificial está transformando todos os setores da sociedade. Desde assistentes virtuais até carros autônomos, a IA está presente em nosso dia a dia. Grandes empresas como Google, Microsoft e OpenAI investem bilhões para tornar a IA mais acessível e poderosa. O futuro promete máquinas capazes de aprender, raciocinar e até sentir emoções.')">
+                    📖 Leia mais
+                </button>
             </div>
-        </section>
+            <div class="hero-icon">🤖</div>
+        </div>
+    </section>
 
-        <!-- ===== SEÇÃO DE NOTÍCIAS (DINÂMICA) ===== -->
-        <section class="noticias" id="conteudo-principal">
-            <div class="container">
-                <h2 id="titulo-categoria">📰 Últimas Notícias</h2>
-                <div class="cards-grid" id="cards-container">
-                    <!-- Os cards serão inseridos pelo JavaScript -->
-                </div>
+    <!-- ===== NOTÍCIAS ===== -->
+    <section class="noticias">
+        <div class="container">
+            <h2 id="titulo-categoria">📰 Últimas Notícias</h2>
+            <div class="cards-grid" id="cards-container">
+                <!-- Os cards serão inseridos pelo JavaScript -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== SEÇÃO MAIS LIDAS ===== -->
-        <section class="destaques">
-            <div class="container">
-                <div class="destaques-grid">
-                    <div class="mais-lidas">
-                        <h2>🔥 Mais Lidas</h2>
-                        <div class="lista-item">
-                            <span class="numero">01</span>
-                            <div>
-                                <h4>Inteligência Artificial: O Futuro já Chegou</h4>
-                                <span class="data">📅 23/06/2026</span>
-                            </div>
-                        </div>
-                        <div class="lista-item">
-                            <span class="numero">02</span>
-                            <div>
-                                <h4>Apple lança novo iPhone com chip revolucionário</h4>
-                                <span class="data">📅 23/06/2026</span>
-                            </div>
-                        </div>
-                        <div class="lista-item">
-                            <span class="numero">03</span>
-                            <div>
-                                <h4>PlayStation 6 chega com gráficos impressionantes</h4>
-                                <span class="data">📅 21/06/2026</span>
-                            </div>
-                        </div>
+    <!-- ===== MAIS LIDAS ===== -->
+    <section class="mais-lidas">
+        <div class="container">
+            <h2>🔥 Mais Lidas</h2>
+            <div class="lista">
+                <div class="lista-item">
+                    <span class="numero">01</span>
+                    <div>
+                        <h4>Inteligência Artificial: O Futuro já Chegou</h4>
+                        <span class="data">📅 23/06/2026</span>
                     </div>
-                    <div class="categorias">
-                        <h2>📂 Categorias</h2>
-                        <ul>
-                            <li data-categoria="hardware">💻 Hardware <span class="count">(12)</span></li>
-                            <li data-categoria="mobile">📱 Mobile <span class="count">(8)</span></li>
-                            <li data-categoria="games">🎮 Games <span class="count">(15)</span></li>
-                            <li data-categoria="ia">🤖 Inteligência Artificial <span class="count">(10)</span></li>
-                        </ul>
+                </div>
+                <div class="lista-item">
+                    <span class="numero">02</span>
+                    <div>
+                        <h4>Apple lança novo iPhone com chip revolucionário</h4>
+                        <span class="data">📅 23/06/2026</span>
+                    </div>
+                </div>
+                <div class="lista-item">
+                    <span class="numero">03</span>
+                    <div>
+                        <h4>PlayStation 6 chega com gráficos impressionantes</h4>
+                        <span class="data">📅 21/06/2026</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== NEWSLETTER ===== -->
-        <section class="newsletter">
-            <div class="container">
-                <h2>📬 Receba as últimas notícias</h2>
-                <p>Cadastre-se e receba as principais notícias de tecnologia no seu e-mail!</p>
-                <form id="formNewsletter">
-                    <input type="email" id="emailInput" placeholder="Digite seu melhor e-mail" required>
-                    <button type="submit">📨 Inscrever-se</button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ========================================== -->
-    <!-- RODAPÉ -->
-    <!-- ========================================== -->
+    <!-- ===== RODAPÉ ===== -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>📡 TechNews</h3>
-                    <p>O melhor portal de notícias sobre tecnologia do Brasil.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>📰 Categorias</h4>
-                    <ul>
-                        <li>💻 Hardware</li>
-                        <li>📱 Mobile</li>
-                        <li>🎮 Games</li>
-                        <li>🤖 IA</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>🔗 Links</h4>
-                    <ul>
-                        <li>Sobre nós</li>
-                        <li>Contato</li>
-                        <li>Política de Privacidade</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>📱 Redes Sociais</h4>
-                    <ul>
-                        <li>📸 Instagram</li>
-                        <li>🐦 Twitter</li>
-                        <li>▶️ YouTube</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 TechNews - Todos os direitos reservados | Criado com ❤️ e ☕</p>
-            </div>
+            <p>© 2026 TechNews - Todos os direitos reservados</p>
         </div>
     </footer>
 
-    <!-- ===== MODAL PARA "LEIA MAIS" ===== -->
-    <div id="modalLeiaMais" class="modal">
+    <!-- ===== MODAL ===== -->
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="modal-fechar">&times;</span>
+            <span class="fechar" onclick="fecharModal()">&times;</span>
             <h2 id="modal-titulo">Título</h2>
-            <p id="modal-conteudo">Conteúdo detalhado aqui...</p>
+            <p id="modal-conteudo">Conteúdo</p>
         </div>
     </div>
 
     <!-- ========================================== -->
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT DENTRO DO HTML                 -->
     <!-- ========================================== -->
-    <script src="javascript/script.js"></script>
+    <script>
+        // =============================================
+        // BANCO DE DADOS
+        // =============================================
+        const noticias = {
+            inicio: {
+                titulo: "📰 Últimas Notícias",
+                cards: [
+                    {
+                        icone: "📱",
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "Apple lança novo iPhone com chip revolucionário",
+                        resumo: "O novo processador promete ser 3x mais rápido que a geração anterior.",
+                        autor: "João Silva",
+                        completo: "A Apple anunciou hoje o lançamento do iPhone 17 Pro, equipado com o novo chip A18 Bionic. O processador, fabricado com tecnologia de 3nm, promete um ganho de performance de 300% em tarefas de IA e machine learning. A bateria também teve melhorias significativas, oferecendo até 48 horas de autonomia. O novo modelo chega ao Brasil em agosto com preços a partir de R$ 9.999."
+                    },
+                    {
+                        icone: "🤖",
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "Google anuncia novas ferramentas de IA para desenvolvedores",
+                        resumo: "Novas APIs prometem facilitar a criação de aplicações inteligentes.",
+                        autor: "Maria Santos",
+                        completo: "O Google I/O 2026 trouxe novidades empolgantes para a comunidade de desenvolvedores. O Gemini Pro, nova versão do modelo de IA da Google, agora conta com APIs especializadas para visão computacional, processamento de linguagem natural e geração de código."
+                    },
+                    {
+                        icone: "🎮",
+                        data: "📅 21 de Junho, 2026",
+                        titulo: "PlayStation 6 pode chegar em 2027 com tecnologia inovadora",
+                        resumo: "Console promete gráficos em 8K e carregamento instantâneo.",
+                        autor: "Pedro Oliveira",
+                        completo: "A Sony está desenvolvendo o PlayStation 6 com tecnologia de ponta. O novo console deve contar com um processador personalizado da AMD, capaz de renderizar gráficos em 8K a 120fps. A Sony planeja lançar o PS6 no final de 2027."
+                    }
+                ]
+            },
+            hardware: {
+                titulo: "💻 Hardware - Últimas Novidades",
+                cards: [
+                    {
+                        icone: "🖥️",
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "Novo processador Intel revoluciona mercado de PCs",
+                        resumo: "Intel lança processador com 24 núcleos e tecnologia de 3nm.",
+                        autor: "Carlos Tech",
+                        completo: "A Intel anunciou hoje seu mais novo processador, o Core Ultra 9 299K, fabricado com tecnologia de 3nm. Com 24 núcleos e 32 threads, o chip promete performance 50% superior à geração anterior."
+                    },
+                    {
+                        icone: "💾",
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "SSD de 4TB chega ao mercado com preço acessível",
+                        resumo: "Novo SSD NVMe promete velocidades de leitura de 10GB/s.",
+                        autor: "Ana Storage",
+                        completo: "A Western Digital lançou hoje o SSD SN850X de 4TB, com velocidades de leitura sequencial de até 10GB/s e gravação de 9GB/s. O preço sugerido de R$ 2.499."
+                    },
+                    {
+                        icone: "🎮",
+                        data: "📅 21 de Junho, 2026",
+                        titulo: "Placa de vídeo NVIDIA RTX 6090 é anunciada",
+                        resumo: "Nova GPU promete revolucionar o mundo dos games.",
+                        autor: "Pedro GPU",
+                        completo: "A NVIDIA apresentou hoje a RTX 6090, com 24GB de memória GDDR7, capaz de rodar jogos em 8K a 240fps e processar modelos de IA com eficiência 3x maior."
+                    }
+                ]
+            },
+            mobile: {
+                titulo: "📱 Mobile - Últimas Novidades",
+                cards: [
+                    {
+                        icone: "📱",
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "Apple lança novo iPhone com chip revolucionário",
+                        resumo: "O novo processador promete ser 3x mais rápido.",
+                        autor: "João Silva",
+                        completo: "iPhone 17 Pro com chip A18 Bionic, bateria de 48 horas e câmera aprimorada. Preços a partir de R$ 9.999."
+                    },
+                    {
+                        icone: "📶",
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "5G chega a novas cidades brasileiras",
+                        resumo: "Tecnologia promete revolucionar a conectividade.",
+                        autor: "Carlos Lima",
+                        completo: "A Anatel autorizou a ativação do 5G em mais 50 cidades brasileiras. Velocidades de download de até 10Gbps."
+                    },
+                    {
+                        icone: "📊",
+                        data: "📅 20 de Junho, 2026",
+                        titulo: "Samsung lança Galaxy S30 com câmera de 200MP",
+                        resumo: "Novo smartphone promete revolucionar a fotografia.",
+                        autor: "Lucas Photo",
+                        completo: "Samsung Galaxy S30 Ultra com câmera de 200MP e zoom óptico de 100x. Processador Exynos 2400."
+                    }
+                ]
+            },
+            games: {
+                titulo: "🎮 Games - Últimas Novidades",
+                cards: [
+                    {
+                        icone: "🎮",
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "PlayStation 6 chega com gráficos revolucionários",
+                        resumo: "Console promete gráficos em 8K e carregamento instantâneo.",
+                        autor: "Pedro Oliveira",
+                        completo: "PlayStation 6 com processador AMD de 5nm, 32GB de RAM GDDR7 e SSD de 2TB. Gráficos em 8K a 120fps."
+                    },
+                    {
+                        icone: "🕹️",
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "Xbox Series X 2.0 é anunciado pela Microsoft",
+                        resumo: "Novo console promete ser o mais poderoso do mercado.",
+                        autor: "João Gamer",
+                        completo: "Xbox Series X 2.0 com processador Zen 5, 36GB de RAM e GPU com 24 TFLOPS. Lançamento em 2027."
+                    },
+                    {
+                        icone: "🎯",
+                        data: "📅 21 de Junho, 2026",
+                        titulo: "Grand Theft Auto VI: data de lançamento confirmada",
+                        resumo: "Jogo mais aguardado da década tem data confirmada.",
+                        autor: "Marina Games",
+                        completo: "GTA VI será lançado em 15 de dezembro de 2026. Mapa 3x maior que GTA V. Motor RAGE 2.0."
+                    }
+                ]
+            },
+            ia: {
+                titulo: "🤖 Inteligência Artificial - Últimas Novidades",
+                cards: [
+                    {
+                        icone: "🤖",
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "OpenAI lança GPT-5 com capacidades revolucionárias",
+                        resumo: "Nova versão do modelo promete raciocínio avançado.",
+                        autor: "Ana Santos",
+                        completo: "GPT-5 com 1 trilhão de parâmetros, capaz de raciocinar e executar tarefas complexas. Suporte a multimídia."
+                    },
+                    {
+                        icone: "🏥",
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "IA revoluciona diagnóstico médico com 99% de precisão",
+                        resumo: "Sistema de IA supera médicos em diagnósticos.",
+                        autor: "Dr. Roberto",
+                        completo: "IA da Universidade de Stanford diagnostica câncer com 99,2% de precisão, superando médicos especialistas."
+                    },
+                    {
+                        icone: "🧠",
+                        data: "📅 21 de Junho, 2026",
+                        titulo: "Neuralink testa chip cerebral em humanos com sucesso",
+                        resumo: "Elon Musk anuncia primeiros testes com implante cerebral.",
+                        autor: "Alice Neuro",
+                        completo: "Neuralink implantou chip N1 em 3 pacientes com paralisia, permitindo controlar dispositivos com o pensamento."
+                    }
+                ]
+            }
+        };
+
+        // =============================================
+        // FUNÇÕES
+        // =============================================
+        function mudarCategoria(categoria) {
+            // Atualiza menu
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`nav a[onclick="mudarCategoria('${categoria}')"]`).classList.add('active');
+            
+            // Pega os dados
+            const dados = noticias[categoria];
+            document.getElementById('titulo-categoria').textContent = dados.titulo;
+            
+            // Monta os cards
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+            
+            dados.cards.forEach(card => {
+                container.innerHTML += `
+                    <div class="card">
+                        <div class="icone">${card.icone}</div>
+                        <span class="data">${card.data}</span>
+                        <h3>${card.titulo}</h3>
+                        <p>${card.resumo}</p>
+                        <span class="autor">Por <strong>${card.autor}</strong></span>
+                        <button onclick="abrirModal('${card.titulo.replace(/'/g, "\\'")}', '${card.completo.replace(/'/g, "\\'")}')">
+                            📖 Leia mais
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function abrirModal(titulo, conteudo) {
+            document.getElementById('modal-titulo').textContent = titulo;
+            document.getElementById('modal-conteudo').textContent = conteudo;
+            document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // =============================================
+        // INICIALIZA
+        // =============================================
+        window.onload = function() {
+            mudarCategoria('inicio');
+            
+            // Fecha modal clicando fora
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) fecharModal();
+            });
+            
+            // Fecha modal com ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') fecharModal();
+            });
+        };
+    </script>
+
 </body>
 </html>
