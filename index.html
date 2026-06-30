@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechNews - Notícias de Tecnologia</title>
     
+    <!-- ========================================== -->
+    <!-- CSS DENTRO DO HTML (SEM ARQUIVO EXTERNO)  -->
+    <!-- ========================================== -->
     <style>
         /* ===== RESET ===== */
         * {
@@ -30,9 +33,6 @@
             background: #1a1a2e;
             padding: 20px 0;
             border-bottom: 3px solid #00d4ff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         header .container {
@@ -183,25 +183,6 @@
             margin-bottom: 8px;
         }
 
-        .card .preco {
-            background: #00d4ff;
-            color: #1a1a2e;
-            padding: 2px 12px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            display: inline-block;
-            margin: 5px 0 10px;
-        }
-
-        .card .onde-comprar {
-            color: #0f3460;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 10px;
-        }
-
         .card h3 {
             font-size: 1.1rem;
             margin-bottom: 10px;
@@ -234,17 +215,6 @@
         .card button:hover {
             background: #0f3460;
             color: #fff;
-        }
-
-        .card .destaque-badge {
-            background: #ff6b6b;
-            color: #fff;
-            padding: 2px 12px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 8px;
         }
 
         /* ===== MAIS LIDAS ===== */
@@ -340,34 +310,6 @@
         .modal-content p {
             color: #555;
             line-height: 1.8;
-        }
-
-        .modal-content .preco-modal {
-            background: #00d4ff;
-            color: #1a1a2e;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin: 15px 0;
-        }
-
-        .modal-content .comprar-modal {
-            display: inline-block;
-            background: #0f3460;
-            color: #fff;
-            padding: 10px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
-
-        .modal-content .comprar-modal:hover {
-            background: #00d4ff;
-            color: #1a1a2e;
         }
 
         /* ===== RODAPÉ ===== */
@@ -509,8 +451,6 @@
             <span class="fechar" onclick="fecharModal()">&times;</span>
             <h2 id="modal-titulo">Título</h2>
             <p id="modal-conteudo">Conteúdo</p>
-            <div id="modal-preco"></div>
-            <div id="modal-comprar"></div>
         </div>
     </div>
 
@@ -519,7 +459,7 @@
     <!-- ========================================== -->
     <script>
         // =============================================
-        // BANCO DE DADOS TURBINADO
+        // BANCO DE DADOS
         // =============================================
         const noticias = {
             inicio: {
@@ -581,154 +521,60 @@
                 ]
             },
             mobile: {
-                titulo: "📱 Mobile - Melhores Celulares e Novidades",
+                titulo: "📱 Mobile - Últimas Novidades",
                 cards: [
-                    {
-                        icone: "🏆",
-                        data: "📅 Destaque",
-                        titulo: "⭐ MELHOR CUSTO-BENEFÍCIO: Samsung Galaxy A55",
-                        resumo: "O melhor celular para jogos por menos de R$ 2.500! Performance incrível com tela de 120Hz.",
-                        autor: "Ranking TechNews",
-                        completo: "O Samsung Galaxy A55 é atualmente o celular com melhor custo-benefício para jogos no Brasil. Com processador Exynos 1480, 8GB de RAM e tela Super AMOLED de 120Hz, ele roda os principais jogos como Free Fire, COD Mobile e Genshin Impact com qualidade gráfica elevada. Bateria de 5000mAh garante horas de gameplay. Preço médio: R$ 2.299.",
-                        preco: "💰 R$ 2.299",
-                        ondeComprar: "🛒 Disponível na Amazon, Magazine Luiza e Samsung Store"
-                    },
                     {
                         icone: "📱",
                         data: "📅 23 de Junho, 2026",
-                        titulo: "iPhone 17 Pro: O melhor para jogos premium",
-                        resumo: "Chip A18 Bionic e tela ProMotion de 120Hz para experiência gamer incomparável.",
+                        titulo: "Apple lança novo iPhone com chip revolucionário",
+                        resumo: "O novo processador promete ser 3x mais rápido.",
                         autor: "João Silva",
-                        completo: "O iPhone 17 Pro é o smartphone mais poderoso para jogos atualmente. O chip A18 Bionic com GPU de 6 núcleos entrega performance de console em um celular. Os jogos com suporte a Ray Tracing rodam com qualidade cinematográfica. Bateria dura até 10 horas de gameplay intenso.",
-                        preco: "💰 A partir de R$ 9.999",
-                        ondeComprar: "🛒 Disponível na Apple Store e grandes varejistas"
-                    },
-                    {
-                        icone: "🎮",
-                        data: "📅 22 de Junho, 2026",
-                        titulo: "Poco X6 Pro: Potência por R$ 2.199",
-                        resumo: "Celular com processador MediaTek Dimensity 8300, ideal para jogos pesados.",
-                        autor: "Lucas Tech",
-                        completo: "O Poco X6 Pro é uma das melhores opções para quem busca desempenho em jogos sem gastar muito. Com tela AMOLED de 120Hz e 12GB de RAM, ele roda todos os jogos da Play Store no máximo de qualidade. O sistema de resfriamento líquido mantém a temperatura estável mesmo em longas sessões.",
-                        preco: "💰 R$ 2.199",
-                        ondeComprar: "🛒 Disponível na Amazon, AliExpress e lojas Poco"
+                        completo: "iPhone 17 Pro com chip A18 Bionic, bateria de 48 horas e câmera aprimorada. Preços a partir de R$ 9.999."
                     },
                     {
                         icone: "📶",
-                        data: "📅 21 de Junho, 2026",
+                        data: "📅 22 de Junho, 2026",
                         titulo: "5G chega a novas cidades brasileiras",
-                        resumo: "Tecnologia promete revolucionar a conectividade e o gaming mobile.",
+                        resumo: "Tecnologia promete revolucionar a conectividade.",
                         autor: "Carlos Lima",
-                        completo: "A Anatel autorizou a ativação do 5G em mais 50 cidades brasileiras. A tecnologia permite jogos com latência ultrabaixa (1ms) e downloads de jogos pesados em segundos. A previsão é que até o final de 2026, 90% da população tenha acesso ao 5G."
-                    },
-                    {
-                        icone: "🎯",
-                        data: "📅 20 de Junho, 2026",
-                        titulo: "Acessórios gamers para celular: vale a pena?",
-                        resumo: "Controles, coolers e suportes: o que realmente melhora sua experiência?",
-                        autor: "Marina Gamer",
-                        completo: "Os acessórios gamers podem transformar seu celular em um verdadeiro console portátil. Controles como o Gamesir X2 e o Backbone One são os mais recomendados. Coolers magnéticos ajudam a manter o desempenho em jogos pesados. Investimento médio: R$ 300 a R$ 800."
+                        completo: "A Anatel autorizou a ativação do 5G em mais 50 cidades brasileiras. Velocidades de download de até 10Gbps."
                     },
                     {
                         icone: "📊",
-                        data: "📅 19 de Junho, 2026",
-                        titulo: "Ranking: Os 5 melhores celulares para jogos em 2026",
-                        resumo: "Confira nossa lista completa com os melhores smartphones para games.",
-                        autor: "Ranking TechNews",
-                        completo: "1. iPhone 17 Pro (R$ 9.999) - 2. Samsung Galaxy S25 Ultra (R$ 8.499) - 3. Asus ROG Phone 8 (R$ 7.999) - 4. Poco X6 Pro (R$ 2.199) - 5. Samsung Galaxy A55 (R$ 2.299). A escolha depende do seu orçamento e do tipo de jogo que você prefere."
-                    },
-                    {
-                        icone: "🔥",
-                        data: "📅 18 de Junho, 2026",
-                        titulo: "Aplicativo que transforma celular em console retrô",
-                        resumo: "Emuladores permitem jogar clássicos do PlayStation e Nintendo no celular.",
-                        autor: "Paulo Retrô",
-                        completo: "Aplicativos como RetroArch e PPSSPP permitem rodar jogos clássicos de PlayStation 1, Nintendo 64 e até PSP no celular. Com um controle bluetooth, a experiência é praticamente idêntica à original. Tudo gratuito e legal."
+                        data: "📅 20 de Junho, 2026",
+                        titulo: "Samsung lança Galaxy S30 com câmera de 200MP",
+                        resumo: "Novo smartphone promete revolucionar a fotografia.",
+                        autor: "Lucas Photo",
+                        completo: "Samsung Galaxy S30 Ultra com câmera de 200MP e zoom óptico de 100x. Processador Exynos 2400."
                     }
                 ]
             },
             games: {
-                titulo: "🎮 Games - Melhores Jogos do Momento",
+                titulo: "🎮 Games - Últimas Novidades",
                 cards: [
                     {
-                        icone: "🎯",
-                        data: "📅 JOGO DO ANO 2026",
-                        titulo: "⭐ GRAND THEFT AUTO VI",
-                        resumo: "O jogo mais aguardado da década finalmente chega em dezembro! Vice City nunca foi tão realista.",
-                        autor: "Rockstar Games",
-                        completo: "GTA VI chega em 15 de dezembro de 2026 com mapa 3x maior que GTA V, dois protagonistas inspirados em Bonnie e Clyde, e gráficos com Ray Tracing em tempo real. O jogo utiliza o motor RAGE 2.0 e promete física avançada e inteligência artificial revolucionária. A edição padrão já está em pré-venda.",
-                        preco: "💰 R$ 299 (Edição Padrão) | R$ 399 (Edição Deluxe)",
-                        ondeComprar: "🛒 Disponível na PSN, Xbox Store, Steam e Rockstar Launcher"
-                    },
-                    {
-                        icone: "⚔️",
-                        data: "📅 22 de Junho, 2026",
-                        titulo: "The Elder Scrolls VI - Primeiro Gameplay",
-                        resumo: "A Bethesda mostrou imagens inéditas do novo RPG que promete revolucionar o gênero.",
-                        autor: "Bethesda",
-                        completo: "The Elder Scrolls VI foi mostrado pela primeira vez em gameplay. O jogo se passa em Hammerfell e apresenta gráficos com Unreal Engine 5. O mundo é 5x maior que Skyrim, com missões dinâmicas e sistema de magia completamente reformulado. Lançamento previsto para 2027.",
-                        preco: "💰 Preço sugerido: R$ 299",
-                        ondeComprar: "🛒 Pré-venda na Steam, Xbox e PlayStation Store"
-                    },
-                    {
-                        icone: "🤖",
-                        data: "📅 21 de Junho, 2026",
-                        titulo: "Cyberpunk 2077: DLC Final - Phantom Liberty 2",
-                        resumo: "A última expansão do jogo chega com novas áreas e finais alternativos.",
-                        autor: "CD Projekt Red",
-                        completo: "A CD Projekt Red anunciou a expansão final de Cyberpunk 2077, trazendo uma nova região de Night City, novas side quests e três finais alternativos para a história principal. Gráficos aprimorados com Ray Tracing Overdrive. A DLC será a última atualização significativa do jogo.",
-                        preco: "💰 R$ 99 (DLC) | R$ 199 (Edição Completa)",
-                        ondeComprar: "🛒 Disponível na GOG, Steam e PlayStation Store"
-                    },
-                    {
                         icone: "🎮",
-                        data: "📅 20 de Junho, 2026",
-                        titulo: "PlayStation 6 - Prévias dos Jogos de Lançamento",
-                        resumo: "A Sony revelou os primeiros títulos exclusivos para o novo console.",
-                        autor: "Sony",
-                        completo: "A Sony apresentou 12 jogos exclusivos para o PlayStation 6, incluindo Marvel's Spider-Man 3, God of War: Ragnarok 2 e Horizon Zero Dawn 2. Todos os jogos rodam em 8K a 120fps com tecnologia de Ray Tracing em tempo real. A lista completa será divulgada na Gamescom 2026.",
-                        preco: "💰 Jogos a partir de R$ 299",
-                        ondeComprar: "🛒 Disponível na PlayStation Store e lojas físicas"
-                    },
-                    {
-                        icone: "🏆",
-                        data: "📅 19 de Junho, 2026",
-                        titulo: "Elden Ring 2 é anunciado oficialmente",
-                        resumo: "A FromSoftware confirma sequência do jogo que vendeu 25 milhões de cópias.",
-                        autor: "FromSoftware",
-                        completo: "Elden Ring 2 foi confirmado pela FromSoftware com lançamento previsto para 2028. O jogo contará com um novo mundo aberto, sistema de combate refinado e a participação de George R.R. Martin novamente na construção do universo. As primeiras imagens serão mostradas no The Game Awards.",
-                        preco: "💰 Preço sugerido: R$ 299",
-                        ondeComprar: "🛒 Pré-venda em breve na Steam, Xbox e PlayStation"
+                        data: "📅 23 de Junho, 2026",
+                        titulo: "PlayStation 6 chega com gráficos revolucionários",
+                        resumo: "Console promete gráficos em 8K e carregamento instantâneo.",
+                        autor: "Pedro Oliveira",
+                        completo: "PlayStation 6 com processador AMD de 5nm, 32GB de RAM GDDR7 e SSD de 2TB. Gráficos em 8K a 120fps."
                     },
                     {
                         icone: "🕹️",
-                        data: "📅 18 de Junho, 2026",
-                        titulo: "Xbox Game Pass em 2026: Lista de Jogos Gratuitos",
-                        resumo: "Confira todos os jogos que chegaram e vão chegar ao serviço da Microsoft.",
-                        autor: "Xbox",
-                        completo: "O Xbox Game Pass tem mais de 100 jogos disponíveis em 2026. Os destaques são: Starfield 2, Forza Motorsport 9, Halo Infinite 2 e Indiana Jones 2. O serviço custa R$ 39,90/mês e permite jogar no console, PC e nuvem.",
-                        preco: "💰 R$ 39,90/mês (Game Pass Ultimate)",
-                        ondeComprar: "🛒 Disponível no Xbox Store e site oficial"
-                    },
-                    {
-                        icone: "🔥",
-                        data: "📅 17 de Junho, 2026",
-                        titulo: "Fortnite: Nova Temporada com Colaboração com Marvel",
-                        resumo: "A nova temporada de Fortnite trará heróis da Marvel e eventos épicos.",
-                        autor: "Epic Games",
-                        completo: "A temporada 'Marvel Heroes' de Fortnite trará Homem-Aranha, Thor, Capitão América e Homem de Ferro como skins jogáveis. Além disso, eventos ao vivo prometem mudar o mapa permanentemente. A temporada começa em 1º de julho.",
-                        preco: "💰 Gratuito (com microtransações a partir de R$ 40)",
-                        ondeComprar: "🛒 Disponível na Epic Games Store e consoles"
+                        data: "📅 22 de Junho, 2026",
+                        titulo: "Xbox Series X 2.0 é anunciado pela Microsoft",
+                        resumo: "Novo console promete ser o mais poderoso do mercado.",
+                        autor: "João Gamer",
+                        completo: "Xbox Series X 2.0 com processador Zen 5, 36GB de RAM e GPU com 24 TFLOPS. Lançamento em 2027."
                     },
                     {
                         icone: "🎯",
-                        data: "📅 16 de Junho, 2026",
-                        titulo: "Call of Duty 2026 será lançado em outubro",
-                        resumo: "O novo Call of Duty tem tema futurista com guerras espaciais.",
-                        autor: "Activision",
-                        completo: "Call of Duty: Infinity Warfare chega em 30 de outubro de 2026. O jogo se passa em um futuro onde a humanidade colonizou Marte e entra em guerra por recursos. O multiplayer terá mapas em gravidade zero e jetpacks. A campanha conta com a atuação de atores renomados.",
-                        preco: "💰 R$ 299 (Edição Padrão) | R$ 399 (Edição Vault)",
-                        ondeComprar: "🛒 Pré-venda na PSN, Xbox Store, Steam e Battle.net"
+                        data: "📅 21 de Junho, 2026",
+                        titulo: "Grand Theft Auto VI: data de lançamento confirmada",
+                        resumo: "Jogo mais aguardado da década tem data confirmada.",
+                        autor: "Marina Games",
+                        completo: "GTA VI será lançado em 15 de dezembro de 2026. Mapa 3x maior que GTA V. Motor RAGE 2.0."
                     }
                 ]
             },
@@ -782,19 +628,50 @@
             container.innerHTML = '';
             
             dados.cards.forEach(card => {
-                let precoHtml = '';
-                let ondeHtml = '';
-                let destaqueHtml = '';
-                
-                if (card.preco) {
-                    precoHtml = `<span class="preco">${card.preco}</span>`;
-                }
-                if (card.ondeComprar) {
-                    ondeHtml = `<span class="onde-comprar">${card.ondeComprar}</span>`;
-                }
-                if (card.data && card.data.includes('Destaque')) {
-                    destaqueHtml = `<span class="destaque-badge">⭐ DESTAQUE</span>`;
-                }
-                
-                // Escapa aspas para o onclick
-                const tituloEscapado = card.tit
+                container.innerHTML += `
+                    <div class="card">
+                        <div class="icone">${card.icone}</div>
+                        <span class="data">${card.data}</span>
+                        <h3>${card.titulo}</h3>
+                        <p>${card.resumo}</p>
+                        <span class="autor">Por <strong>${card.autor}</strong></span>
+                        <button onclick="abrirModal('${card.titulo.replace(/'/g, "\\'")}', '${card.completo.replace(/'/g, "\\'")}')">
+                            📖 Leia mais
+                        </button>
+                    </div>
+                `;
+            });
+        }
+
+        function abrirModal(titulo, conteudo) {
+            document.getElementById('modal-titulo').textContent = titulo;
+            document.getElementById('modal-conteudo').textContent = conteudo;
+            document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // =============================================
+        // INICIALIZA
+        // =============================================
+        window.onload = function() {
+            mudarCategoria('inicio');
+            
+            // Fecha modal clicando fora
+            document.getElementById('modal').addEventListener('click', function(e) {
+                if (e.target === this) fecharModal();
+            });
+            
+            // Fecha modal com ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') fecharModal();
+            });
+        };
+    </script>
+
+</body>
+</html>
